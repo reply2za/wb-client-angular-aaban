@@ -19,7 +19,7 @@ export class ModuleListComponent implements OnInit {
   ngOnInit(): void {
     // Register the activated route - subscribe to event changes
     this.activatedRoute.params.subscribe(params => {
-      console.log('Params', params);
+      // console.log('Params', params);
       this.courseId = params.courseId;
       if (this.courseId !== 'undefined' && this.courseId !== '') {
         this.moduleService.findModulesForCourseId(this.courseId)

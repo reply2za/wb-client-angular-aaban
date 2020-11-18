@@ -23,7 +23,7 @@ export class LessonTabsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      console.log('ParamsLessons', params);
+      // console.log('ParamsLessons', params);
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
       if (this.moduleId !== 'undefined' && this.moduleId !== '') {
@@ -33,7 +33,7 @@ export class LessonTabsComponent implements OnInit {
       if (typeof this.lessonId !== 'undefined') {
         this.lessonId = params.lessonId;
       }
-      console.log('LESSONS', params);
+      // console.log('LESSONS', params);
     });
   }
 
