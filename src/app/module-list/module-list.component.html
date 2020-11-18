@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <li [hidden]="courseId === undefined" class="list-group-item list-group-item-dark">Modules</li>
+  <li [ngClass]="{'list-group-item-success': module._id === this.moduleId}" class="list-group-item" *ngFor="let module of modules">
+    <a routerLink="/courses/{{courseId}}/modules/{{module._id}}/lessons">
+    {{module.title}}
+    </a>
+  </li>
+</ul>
