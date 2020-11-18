@@ -1,7 +1,9 @@
 {
   "name": "cs4550-f20-client-angular-aaban",
   "version": "0.0.0",
-  "node": "14.x",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
