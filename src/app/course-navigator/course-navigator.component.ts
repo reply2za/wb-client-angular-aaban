@@ -17,23 +17,24 @@ export class CourseNavigatorComponent implements OnInit {
   lessons = [];
 
   constructor(private courseService: CourseService,
-              private moduleService: ModuleService) { }
+              private moduleService: ModuleService,
+              private lessonService: LessonService) { }
 
-  createCourse = () =>
-    this.courseService.createCourse()
-      .then(actualCourse => this.courses.push(actualCourse))
-
-  createModuleForCourse = (course) =>
-    this.moduleService.createModuleForCourse(course)
-      .then(actualModule => this.modules.push(actualModule))
-
-  deleteModule = (module) =>
-    this.moduleService.deleteModule(module)
-      .then(status => this.modules = this.modules.filter(m => m !== module))
-
-  deleteCourse = (course) =>
-    this.courseService.deleteCourse(course)
-      .then(status => this.courses = this.courses.filter(c => c !== course))
+  // createCourse = () =>
+  //   this.courseService.createCourse()
+  //     .then(actualCourse => this.courses.push(actualCourse))
+  //
+  // createModuleForCourse = (course) =>
+  //   this.moduleService.createModuleForCourse(course)
+  //     .then(actualModule => this.modules.push(actualModule))
+  //
+  // deleteModule = (module) =>
+  //   this.moduleService.deleteModule(module)
+  //     .then(status => this.modules = this.modules.filter(m => m !== module))
+  //
+  // deleteCourse = (course) =>
+  //   this.courseService.deleteCourse(course)
+  //     .then(status => this.courses = this.courses.filter(c => c !== course))
 
   selectCourse = (course) => {
     this.selectedCourse = course;
@@ -44,16 +45,16 @@ export class CourseNavigatorComponent implements OnInit {
   selectModule = (m) => {
     this.selectedModule = m;
     this.lessonService.findLessonsForModule(m)
-      .then(lesssons => this.lessons = lessons);
+      .then(lessons => this.lessons = lessons);
   }
 
-  editing = (course) =>
-    course.editing = true
-
-  save = (course) => {
-    course.editing = false;
-    this.courseService.updateCourse(course);
-  }
+  // editing = (course) =>
+  //   course.editing = true
+  //
+  // save = (course) => {
+  //   course.editing = false;
+  //   this.courseService.updateCourse(course);
+  // }
 
   ngOnInit(): void {
     this.courseService.findAllCourses()

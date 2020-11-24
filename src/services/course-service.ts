@@ -5,7 +5,8 @@ export class CourseService {
   findAllCourses = () =>
     fetch('https://wbdv-generic-server.herokuapp.com/api/aaban/courses')
   .then(response => response.json())
-  findCourseById = (cid) =>
+  findCourseById = (cid: any) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/aaban/courses/${cid}`)
   .then(response => response.json())
 }
+
