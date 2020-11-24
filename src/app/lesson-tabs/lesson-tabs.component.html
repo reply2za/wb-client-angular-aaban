@@ -6,7 +6,7 @@
       class="nav-item navbar-text"
       *ngFor="let lesson of lessons">
     <a routerLink="/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}/topics">
-      {{lesson.title}}
+      <div> {{lesson.title}} </div>
     </a>
   </nav>
 </ul>

@@ -25,6 +25,5 @@ export class CourseViewerComponent implements OnInit {
 
     this.service.findAllCourses()
       .then(courses => this.courses = courses);
-  }
-
+}
 }
