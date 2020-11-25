@@ -13,6 +13,12 @@ import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import { TopicPilssComponent } from './topic-pills/topic-pilss.component';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import {LessonService} from '../services/lesson-service';
+import { QuizzesListComponent } from './quizzes-list/quizzes-list.component';
+import {QuizzesService} from '../services/quizzes-service';
+import { QuizComponent } from './quiz/quiz.component';
+import {QuestionService} from '../services/question-service';
+import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
+import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,11 @@ import {LessonService} from '../services/lesson-service';
     ModuleListComponent,
     LessonTabsComponent,
     TopicPilssComponent,
-    WidgetListComponent
+    WidgetListComponent,
+    QuizzesListComponent,
+    QuizComponent,
+    MultipleChoiceQuestionComponent,
+    TrueFalseQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +42,9 @@ import {LessonService} from '../services/lesson-service';
   providers: [
     CourseService,
     ModuleService,
-    LessonService
+    LessonService,
+    QuizzesService,
+    QuestionService,
   ],
   bootstrap: [AppComponent]
 })

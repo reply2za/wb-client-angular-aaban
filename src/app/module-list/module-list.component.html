@@ -1,3 +1,4 @@
+
 <ul class="list-group">
   <li [hidden]="courseId === undefined" class="list-group-item list-group-item-dark">Modules</li>
   <li class="list-group-item" [ngClass]="{'list-group-item-success': module._id === this.moduleId}" *ngFor="let module of modules">
