@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+
 // import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 
@@ -9,17 +11,21 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MultipleChoiceQuestionComponent implements OnInit {
 
+  // Input means that the variable is being passed as a reference (with square brackets)
   @Input()
   question = {_id: '', title: '', question: '', choices: [], correct: '', answer: '' };
   grading = false;
+  answer = '';
   // faCheck = faCheck; faTimes = faTimes;
 
-  grade = () => { this.grading = true; };
+  grade = (b: boolean) => this.grading = b;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    // this.route.params.subscribe(params => {
+    //   console.log('multipleChoiceParams', params);
+    // });
   }
 
 }

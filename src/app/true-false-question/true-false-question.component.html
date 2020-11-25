@@ -1,1 +1,48 @@
-<p>true-false-question works!</p>
+<h3>{{question.title}}</h3>
+<h4>{{question.question}}</h4>
+<div [hidden]="grading === true">
+    <input type="radio"
+           name="{{question._id}}"
+           value="true"
+           [(ngModel)]="answer"/>
+  true
+  <br/>
+    <input type="radio"
+           name="{{question._id}}"
+           value="false"
+           [(ngModel)]="answer"/>
+  false
+</div>
+<div [hidden]="grading === false">
+    <input type="radio"
+           name="{{question._id}}"
+           value="true"
+           [(ngModel)]="answer"
+           [disabled]=true
+    />
+  <span [ngClass]="{'wbdv-color-green': answer == question.correct && answer == 'true',
+  'wbdv-color-dark-red': answer !== question.correct && answer == 'true'}"> true</span>
+  <br/>
+    <input type="radio"
+           name="{{question._id}}"
+           value="false"
+           [(ngModel)]="answer"
+           [disabled]=true
+    />
+  <span [ngClass]="{'wbdv-color-green': answer == question.correct && answer == 'false',
+  'wbdv-color-dark-red': answer !== question.correct && answer == 'false'}"> false</span>
+</div>
+<!--<div [hidden]="answer < 1">-->
+<!--  Selected: {{answer}}-->
+<!--</div>-->
+
+<div [hidden]="grading === false">
+  Your answer:
+  <span [ngClass]="{'wbdv-color-green': answer == question.correct,
+  'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
+  <br/>
+  <span [hidden]="question.correct === answer">Correct Answer: {{question.correct}}</span>
+</div>
+<div [hidden]="grading === true">
+<button [hidden]="grading === true" (click)="grade(true)">Grade {{grading}}</button>
+</div>

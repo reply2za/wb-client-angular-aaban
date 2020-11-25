@@ -1,7 +1,10 @@
-<p>quiz works!</p>
+
+<h2>Quiz</h2>
+<h5>id: {{quizId}}</h5>
 <ul class="list-group">
   <li *ngFor="let question of questions" class="list-group-item">
     <div [ngSwitch]="question.type">
+<!--      Square brackets mean that data is being received from the outside-->
       <app-multiple-choice-question
         [question]="question"
         *ngSwitchCase="'MULTIPLE_CHOICE'"></app-multiple-choice-question>

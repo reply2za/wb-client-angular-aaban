@@ -19,6 +19,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import {QuestionService} from '../services/question-service';
 import { MultipleChoiceQuestionComponent } from './multiple-choice-question/multiple-choice-question.component';
 import { TrueFalseQuestionComponent } from './true-false-question/true-false-question.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { TrueFalseQuestionComponent } from './true-false-question/true-false-que
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     CourseService,

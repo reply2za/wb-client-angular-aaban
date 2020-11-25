@@ -1,3 +1,31 @@
+<h3>{{question.title}}</h3>
+<h4>{{question.question}}</h4>
+<div [hidden]="grading===true" *ngFor="let choice of question.choices">
+    <input
+      type="radio"
+      name="{{question._id}}"
+      value="{{choice}}"
+    [(ngModel)]="answer">
+  {{choice}}
+</div>
 
-<p>multiple-choice-question works!</p>
+<div [hidden]="grading===false" *ngFor="let choice of question.choices">
+    <input
+      type="radio"
+      name="{{question._id}}"
+      value="{{choice}}"
+      [disabled]=true>
+  <span [ngClass]="{'wbdv-color-red': (choice !== question.correct && answer !== question.correct),
+  'wbdv-color-green': ((answer === question.correct) && answer === choice),
+'wbdv-color-dark-red': answer === choice}">{{choice}}</span>
+</div>
+
+<br/>
+<div [hidden]="grading===false">
+  Your answer: <span [ngClass]="{'wbdv-color-dark-red': answer !== question.correct, 'wbdv-color-green': answer === question.correct }">{{answer}} </span><br/>
+<div [hidden]="answer === question.correct">
+  Correct Answer: <span class="wbdv-color-dark-green" > {{question.correct}}</span>
+</div>
+</div>
+<button [hidden]="grading === true" (click)="grade(true)">Grade {{grading}}</button>
 
