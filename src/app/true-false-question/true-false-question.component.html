@@ -41,7 +41,9 @@
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
   'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
   <br/>
-  <span class="wbdv-color-dark-green" [hidden]="question.correct === answer" >Correct Answer: {{this.question.correct}}</span>
+  <span [hidden]="question.correct === answer" >Correct Answer:
+    <span class="wbdv-color-dark-green">{{this.question.correct}}</span>
+  </span>
 </div>
 <div [hidden]="grading === true">
 <button [hidden]="grading === true" (click)="grade(true)">Grade</button>
