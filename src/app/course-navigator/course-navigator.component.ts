@@ -36,13 +36,13 @@ export class CourseNavigatorComponent implements OnInit {
   //   this.courseService.deleteCourse(course)
   //     .then(status => this.courses = this.courses.filter(c => c !== course))
 
-  selectCourse = course => {
+  selectCourse = (course: { title: any; _id: any; }) => {
     this.selectedCourse = course;
     this.moduleService.findModulesForCourse(course)
       .then(modules => this.modules = modules);
   }
 
-  selectModule = m => {
+  selectModule = (m: { title: any; }) => {
     this.selectedModule = m;
     this.lessonService.findLessonsForModule(m)
       .then(lessons => this.lessons = lessons);
