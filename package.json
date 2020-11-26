@@ -1,25 +1,26 @@
 {
   "name": "cs4550-f20-client-angular-aaban",
   "version": "0.0.0",
-  "engines": {
-    "node": "14.x",
-    "npm": "6.14.8"
-  },
   "scripts": {
     "ng": "ng",
+    "heroku-postbuild": "ng build --prod",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node": "14.15.1",
+    "npm": "6.14.8"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.0",
     "@angular/cli": "^11.0.2",
+    "@angular/compiler-cli": "^11.0.2",
     "@angular/common": "~11.0.0",
     "@angular/compiler": "~11.0.0",
-    "@angular/compiler-cli": "^11.0.2",
     "@angular/core": "~11.0.0",
     "@angular/forms": "~11.0.0",
     "@angular/platform-browser": "~11.0.0",
