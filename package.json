@@ -1,17 +1,18 @@
 {
   "name": "cs4550-f20-client-angular-aaban",
   "version": "0.0.0",
-  "engines": {
-    "node": "14.15.1",
-    "npm": "6.14.8"
-  },
   "scripts": {
     "ng": "ng",
+    "heroku-postbuild": "ng build --prod --aot",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": "14.15.1",
+    "npm": "6.14.x"
   },
   "private": true,
   "dependencies": {
