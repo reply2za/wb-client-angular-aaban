@@ -1,34 +1,35 @@
 <h3>{{question.title}}</h3>
 <h4>{{question.question}}</h4>
-<div [hidden]="grading===true" *ngFor="let choice of question.choices">
-    <input
+<div class="list-group" [hidden]="grading===true" *ngFor="let choice of question.choices">
+    <div class="list-group-item"><input
       type="radio"
       name="{{question._id}}"
       value="{{choice}}"
     [(ngModel)]="answer"/>
-  {{choice}}
+      {{choice}}
 </div>
-
-<div [hidden]="grading===false" *ngFor="let choice of question.choices">
-    <input
+</div>
+<div class="list-group" [hidden]="grading===false" *ngFor="let choice of question.choices">
+    <div class="list-group-item" [ngClass]="{'list-group-item-danger': (choice !== question.correct && answer !== question.correct),
+  'list-group-item-success': question.correct === choice}">
+      <input
       type="radio"
       name="{{question._id}}"
       value="{{choice}}"
-      [disabled]=true
-    [ngClass]="{'checked': question}"/>
-  <span [ngClass]="{'wbdv-color-red': (choice !== question.correct && answer !== question.correct),
-  'wbdv-color-green': ((answer === question.correct) && answer === choice),
-'wbdv-color-dark-red': answer === choice}"> {{choice}}</span>
+      [ngModel]="answer"
+      [disabled]= "true"/>
+      {{choice}}
+</div>
 </div>
 <br/>
 <div [hidden]="grading===false">
-  Your answer: <span [hidden]="answer.length > 0"> N/A </span>
+  Selected: <span [hidden]="answer.length > 0"> N/A </span>
   <span [ngClass]="{'wbdv-color-dark-red': answer !== question.correct, 'wbdv-color-green': answer === question.correct }">
     {{answer}}
   </span>
   <br/>
 <div [hidden]="answer === question.correct">
-  Correct Answer: <span class="wbdv-color-dark-green" > {{question.correct}}</span>
+  Correct answer: <span class="wbdv-color-dark-green" > {{question.correct}}</span>
 </div>
 </div>
 <button class="btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>

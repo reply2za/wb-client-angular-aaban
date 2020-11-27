@@ -1,51 +1,54 @@
 <h3>{{question.title}}</h3>
 <h4>{{question.question}}</h4>
-<div [hidden]="grading === true">
-    <input type="radio"
+<div class="list-group" [hidden]="grading === true">
+  <div class="list-group-item">
+    <input
+           type="radio"
            name="{{question._id}}"
            value="true"
            [(ngModel)]="answer"/>
   true
-  <br/>
+  </div>
+  <div class="list-group-item">
     <input type="radio"
            name="{{question._id}}"
            value="false"
            [(ngModel)]="answer"/>
   false
+  </div>
 </div>
-<div [hidden]="grading === false">
-    <input type="radio"
+<div class="list-group" [hidden]="grading === false">
+  <div class="list-group-item" [ngClass]="{'list-group-item-success': question.correct == 'true',
+  'list-group-item-danger': answer !== question.correct && question.correct !== 'true'}">
+  <input type="radio"
            name="{{question._id}}"
            value="true"
            [(ngModel)]="answer"
            [disabled]=true
     />
-  <span [ngClass]="{'wbdv-color-green': answer == question.correct && question.correct == 'true',
-  'wbdv-color-dark-red': answer.length > 0 && answer !== question.correct && question.correct !== 'true'}">
     true
-  </span>
-  <br/>
+  </div>
+  <div class="list-group-item" [ngClass]="{'list-group-item-success': question.correct == 'false',
+  'list-group-item-danger': answer !== question.correct && question.correct !== 'false'}">
     <input type="radio"
            name="{{question._id}}"
            value="false"
            [(ngModel)]="answer"
            [disabled]=true
     />
-  <span [ngClass]="{'wbdv-color-green': answer == question.correct && question.correct == 'false',
-  'wbdv-color-dark-red': answer.length > 0 && answer !== question.correct && question.correct !== 'false'}">
     false
-  </span>
+  </div>
 </div>
 <!--<div [hidden]="answer < 1">-->
 <!--  Selected: {{answer}}-->
 <!--</div>-->
 <br/>
 <div [hidden]="grading === false">
-  Your answer: <span [hidden]="answer.length > 0"> N/A </span>
+  Selected: <span [hidden]="answer.length > 0"> N/A </span>
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
   'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
   <br/>
-  <span [hidden]="question.correct === answer" >Correct Answer:
+  <span [hidden]="question.correct === answer" >Correct answer:
     <span class="wbdv-color-dark-green">{{this.question.correct}}</span>
   </span>
 </div>
