@@ -39,7 +39,7 @@
 <!--<div [hidden]="answer < 1">-->
 <!--  Selected: {{answer}}-->
 <!--</div>-->
-
+<br/>
 <div [hidden]="grading === false">
   Your answer: <span [hidden]="answer.length > 0"> N/A </span>
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
@@ -50,5 +50,5 @@
   </span>
 </div>
 <div [hidden]="grading === true">
-<button [hidden]="grading === true" (click)="grade(true)">Grade</button>
+<button class= "btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>
 </div>
