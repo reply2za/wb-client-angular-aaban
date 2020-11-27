@@ -20,8 +20,10 @@
            [(ngModel)]="answer"
            [disabled]=true
     />
-  <span [ngClass]="{'wbdv-color-green': answer == question.correct && answer == 'true',
-  'wbdv-color-dark-red': answer !== question.correct && answer == 'true'}"> true</span>
+  <span [ngClass]="{'wbdv-color-green': answer == question.correct && question.correct == 'true',
+  'wbdv-color-dark-red': answer.length > 0 && answer !== question.correct && question.correct !== 'true'}">
+    true
+  </span>
   <br/>
     <input type="radio"
            name="{{question._id}}"
@@ -29,15 +31,17 @@
            [(ngModel)]="answer"
            [disabled]=true
     />
-  <span [ngClass]="{'wbdv-color-green': answer == question.correct && answer == 'false',
-  'wbdv-color-dark-red': answer !== question.correct && answer == 'false'}"> false</span>
+  <span [ngClass]="{'wbdv-color-green': answer == question.correct && question.correct == 'false',
+  'wbdv-color-dark-red': answer.length > 0 && answer !== question.correct && question.correct !== 'false'}">
+    false
+  </span>
 </div>
 <!--<div [hidden]="answer < 1">-->
 <!--  Selected: {{answer}}-->
 <!--</div>-->
 
 <div [hidden]="grading === false">
-  Your answer:
+  Your answer: <span [hidden]="answer.length > 0"> N/A </span>
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
   'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
   <br/>
