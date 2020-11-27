@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CourseViewerComponent implements OnInit {
 
-  courses = [];
+  courses: any;
   courseId = '';
 
   constructor(private activateRoute: ActivatedRoute,

@@ -9,7 +9,7 @@ import {ModuleService} from '../../services/module-service';
 })
 export class ModuleListComponent implements OnInit {
 
-  modules = [];
+  modules: any;
   moduleId = '';
   courseId = '';
 

@@ -13,7 +13,7 @@ export class QuizzesListComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   courseId = '';
-  quizzes = [];
+  quizzes: any;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

@@ -8,7 +8,7 @@ import {QuestionService} from '../../services/question-service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  questions = [];
+  questions: any;
   quizId = '';
   constructor(private svc: QuestionService,
               private route: ActivatedRoute

@@ -11,7 +11,7 @@ export class LessonTabsComponent implements OnInit {
 
 
 
-  lessons = [];
+  lessons: any;
   courseId = '';
   moduleId = '';
   lessonId = '';
