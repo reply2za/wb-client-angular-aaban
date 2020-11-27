@@ -1,9 +1,9 @@
 {
-  "name": "client-angular-aaban",
+  "name": "cs4550-f20-client-angular-aaban",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod --aot",
+    "postinstall": "ng build --prod --aot",
     "start": "node server.js",
     "build": "ng build --prod --aot",
     "test": "ng test",
