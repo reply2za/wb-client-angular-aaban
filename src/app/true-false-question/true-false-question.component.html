@@ -1,26 +1,30 @@
 <h3>{{question.title}}</h3>
 <h4>{{question.question}}</h4>
 <div class="list-group" [hidden]="grading === true">
-  <div class="list-group-item">
-    <input
-           type="radio"
-           name="{{question._id}}"
-           value="true"
-           [(ngModel)]="answer"/>
-  true
-  </div>
-  <div class="list-group-item">
-    <input type="radio"
-           name="{{question._id}}"
-           value="false"
-           [(ngModel)]="answer"/>
-  false
-  </div>
+  <label style="margin: 0">
+    <div class="list-group-item">
+      <input
+        type="radio"
+        name="{{question._id}}"
+        value="true"
+        [(ngModel)]="answer"/>
+      true
+    </div>
+  </label>
+  <label>
+    <div class="list-group-item">
+      <input type="radio"
+             name="{{question._id}}"
+             value="false"
+             [(ngModel)]="answer"/>
+      false
+    </div>
+  </label>
 </div>
 <div class="list-group" [hidden]="grading === false">
   <div class="list-group-item" [ngClass]="{'list-group-item-success': question.correct == 'true',
   'list-group-item-danger': answer !== question.correct && question.correct !== 'true'}">
-  <input type="radio"
+    <input type="radio"
            name="{{question._id}}"
            value="true"
            [(ngModel)]="answer"
@@ -48,10 +52,10 @@
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
   'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
   <br/>
-  <span [hidden]="question.correct === answer" >Correct answer:
+  <span [hidden]="question.correct === answer">Correct answer:
     <span class="wbdv-color-dark-green">{{this.question.correct}}</span>
   </span>
 </div>
 <div [hidden]="grading === true">
-<button class= "btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>
+  <button class="btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>
 </div>
