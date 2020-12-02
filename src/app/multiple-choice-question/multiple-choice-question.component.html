@@ -38,5 +38,15 @@
     Correct answer: <span class="wbdv-color-dark-green"> {{question.correct}}</span>
   </div>
 </div>
-<button class="btn btn-secondary" [ngClass]="{'disabled': answer.length < 1}" [hidden]="grading === true" (click)="grade(true)">Grade</button>
-
+<!-- buttons -->
+<div [hidden]="grading === true">
+  <button class="btn btn-secondary"
+          [ngClass]="{'disabled': answer.length < 1}"
+          [hidden]="grading === true || answer.length > 0"
+  >Grade</button>
+</div>
+<div>
+  <button class="btn btn-secondary"
+          [hidden]="grading === true || answer.length < 1"
+          (click)="grade(true)">Grade</button>
+</div>

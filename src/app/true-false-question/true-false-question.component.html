@@ -61,5 +61,13 @@
   </span>
 </div>
 <div [hidden]="grading === true">
-  <button class="btn btn-secondary" [ngClass]="{'disabled': answer.length < 1}" [hidden]="grading === true" (click)="grade(true)">Grade</button>
+  <button class="btn btn-secondary"
+          [ngClass]="{'disabled': answer.length < 1}"
+          [hidden]="grading === true || answer.length > 0"
+  >Grade</button>
+</div>
+<div>
+<button class="btn btn-secondary"
+        [hidden]="grading === true || answer.length < 1"
+        (click)="grade(true)">Grade</button>
 </div>
