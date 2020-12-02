@@ -42,8 +42,10 @@
     {{answer}}
   </span>
   <br/>
+  <span [hidden]="question.correct !== answer"> You are correct
+  </span>
   <div [hidden]="answer === question.correct">
-    Correct answer: <span class="wbdv-color-dark-green"> {{question.correct}}</span>
+    Correct answer: {{question.correct}}
   </div>
 </div>
 <!-- buttons -->
