@@ -50,12 +50,16 @@
 <div [hidden]="grading === false">
   Selected: <span [hidden]="answer.length > 0"> N/A </span>
   <span [ngClass]="{'wbdv-color-green': answer == question.correct,
-  'wbdv-color-dark-red': answer !== question.correct }"> {{answer}} </span>
+  'wbdv-color-dark-red': answer !== question.correct }">
+    {{answer}}
+    <span class="wbdv-color-black" [hidden]="question.correct !== answer"><fa-icon [icon]="faCheck"></fa-icon></span>
+    <span class="wbdv-color-black" [hidden]="question.correct === answer"><fa-icon [icon]="faTimes"></fa-icon></span>
+  </span>
   <br/>
   <span [hidden]="question.correct === answer">Correct answer:
     <span class="wbdv-color-dark-green">{{this.question.correct}}</span>
   </span>
 </div>
 <div [hidden]="grading === true">
-  <button class="btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>
+  <button class="btn btn-secondary" [ngClass]="{'disabled': answer.length < 1}" [hidden]="grading === true" (click)="grade(true)">Grade</button>
 </div>

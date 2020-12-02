@@ -30,11 +30,13 @@
   <span
     [ngClass]="{'wbdv-color-dark-red': answer !== question.correct, 'wbdv-color-green': answer === question.correct }">
     {{answer}}
+    <span class="wbdv-color-black" [hidden]="question.correct !== answer"><fa-icon [icon]="faCheck"></fa-icon></span>
+    <span class="wbdv-color-black" [hidden]="question.correct === answer"><fa-icon [icon]="faTimes"></fa-icon></span>
   </span>
   <br/>
   <div [hidden]="answer === question.correct">
     Correct answer: <span class="wbdv-color-dark-green"> {{question.correct}}</span>
   </div>
 </div>
-<button class="btn btn-secondary" [hidden]="grading === true" (click)="grade(true)">Grade</button>
+<button class="btn btn-secondary" [ngClass]="{'disabled': answer.length < 1}" [hidden]="grading === true" (click)="grade(true)">Grade</button>
 

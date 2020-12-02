@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 // import {faCheck, faTimes} from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +17,8 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   question = {_id: '', title: '', question: '', choices: [], correct: '', answer: '' };
   grading = false;
   answer = '';
-  // faCheck = faCheck; faTimes = faTimes;
+  faCheck = faCheck;
+  faTimes = faTimes;
 
   grade = (b: boolean) => this.grading = b;
 
