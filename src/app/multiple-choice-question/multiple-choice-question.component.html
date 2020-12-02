@@ -1,5 +1,14 @@
 <h3>{{question.title}}</h3>
-<h4>{{question.question}}</h4>
+<h4>
+  {{question.question}}
+  <span class="wbdv-color-black float-right wbdv--margin-right-5" [hidden]="grading == false ||question.correct !== answer">
+    <fa-icon [icon]="faCheck"></fa-icon>
+  </span>
+  <span class="wbdv-color-black float-right wbdv--margin-right-5" [hidden]="grading == false ||question.correct === answer || answer.length < 1">
+    <fa-icon [icon]="faTimes"></fa-icon>
+  </span>
+</h4>
+<!-- Not in grading mode -->
 <div class="list-group" [hidden]="grading===true" *ngFor="let choice of question.choices">
   <label style="margin: 0">
     <div class="list-group-item">
@@ -12,8 +21,9 @@
     </div>
   </label>
 </div>
+<!-- In grading mode -->
 <div class="list-group" [hidden]="grading===false" *ngFor="let choice of question.choices">
-  <div class="list-group-item" [ngClass]="{'list-group-item-danger': (choice !== question.correct && answer !== question.correct),
+  <div class="list-group-item" [ngClass]="{'list-group-item-danger': (choice !== question.correct && answer !== question.correct && answer === choice),
   'list-group-item-success': question.correct === choice}">
     <input
       type="radio"
@@ -30,8 +40,6 @@
   <span
     [ngClass]="{'wbdv-color-dark-red': answer !== question.correct, 'wbdv-color-green': answer === question.correct }">
     {{answer}}
-    <span class="wbdv-color-black" [hidden]="question.correct !== answer"><fa-icon [icon]="faCheck"></fa-icon></span>
-    <span class="wbdv-color-black" [hidden]="question.correct === answer"><fa-icon [icon]="faTimes"></fa-icon></span>
   </span>
   <br/>
   <div [hidden]="answer === question.correct">
