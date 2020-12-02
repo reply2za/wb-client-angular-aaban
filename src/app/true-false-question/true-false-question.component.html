@@ -65,7 +65,7 @@
   <span [hidden]="question.correct !== answer"> You are correct
   </span>
   <span [hidden]="question.correct === answer">Correct answer:
-    {{this.question.correct}}
+    <span class="wbdv-color-dark-green">{{this.question.correct}}</span>
   </span>
 </div>
 <div [hidden]="grading === true">
